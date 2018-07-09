@@ -39,7 +39,12 @@ function addTask() {
 
 function removeTask() {
   var name = prompt("Please enter the task that you want to remove");
-  var index = taskList.indexOf(name);
+  for (var j = 0; j < taskList.length; j++) {
+    if (name == taskList[j].name) {
+      var index = j;
+      break;
+    }
+  }
   taskList.splice(index, 1);
   document.getElementById("tasks").innerHTML = " ";
   for (var i = 0; i < taskList.length; i++) {
@@ -50,7 +55,6 @@ function removeTask() {
 function monthText(monthNum) {
   return months[monthNum - 1];
 }
-
 
 
 
